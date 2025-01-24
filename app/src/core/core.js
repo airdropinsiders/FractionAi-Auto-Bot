@@ -56,12 +56,12 @@ export default class Core extends API {
   async ['signIn']() {
     try {
       await Helper.delay(0x1f4, this.acc, "Sign In To Fraction AI DAPPS", this);
-      const _0x1babc8 = await this.fetch("https://dapp-backend-large.fractionai.xyz/api2/auth/nonce");
+      const _0x1babc8 = await this.fetch("https://dapp-backend-large.fractionai.xyz/api3/auth/nonce");
       const _0x371733 = _0x1babc8.data.nonce;
       const _0x1f4829 = "dapp.fractionai.xyz wants you to sign in with your Ethereum account:\n" + this.address + "\n\nSign in with your wallet to Neural Arena.\n\nURI: https://dapp.fractionai.xyz\nVersion: 1\nChain ID: 11155111\nNonce: " + _0x371733 + "\nIssued At: " + new Date().toISOString();
       const _0x21deb5 = await this.wallet.signMessage(_0x1f4829);
       const _0x1dfdac = Helper.solveRef(Helper.code);
-      const _0x329fdc = await this.fetch('https://dapp-backend-large.fractionai.xyz/api2/auth/verify', 'POST', undefined, {
+      const _0x329fdc = await this.fetch('https://dapp-backend-large.fractionai.xyz/api3/auth/verify', 'POST', undefined, {
         'message': _0x1f4829,
         'signature': _0x21deb5,
         'referralCode': _0x1dfdac
@@ -77,7 +77,7 @@ export default class Core extends API {
   async ["getSessionTypeList"]() {
     try {
       await Helper.delay(0x1f4, this.acc, "Getting Session Type List...", this);
-      const _0x4e0c26 = await this.fetch('https://dapp-backend-large.fractionai.xyz/api2/session-types/list/' + this.user.id, "GET", this.token);
+      const _0x4e0c26 = await this.fetch('https://dapp-backend-large.fractionai.xyz/api3/session-types/list/' + this.user.id, "GET", this.token);
       this.sessioinType = _0x4e0c26.data;
       await Helper.delay(0x1f4, this.acc, "Successfully Get Session Type List...", this);
     } catch (_0x59c8e7) {
@@ -87,7 +87,7 @@ export default class Core extends API {
   async ["matchmarking"](_0x2f6de0) {
     try {
       await Helper.delay(0x3e8, this.acc, "Initiate Matchmarking For Agent " + _0x2f6de0.name, this);
-      const _0x61c56a = await this.fetch("https://dapp-backend-large.fractionai.xyz/api2/matchmaking/initiate", "POST", this.token, {
+      const _0x61c56a = await this.fetch("https://dapp-backend-large.fractionai.xyz/api3/matchmaking/initiate", "POST", this.token, {
         'userId': this.user.id,
         'agentId': _0x2f6de0.id,
         'entryFees': Config.ENTRYFEE,
@@ -105,7 +105,7 @@ export default class Core extends API {
   async ['getUserAgent']() {
     try {
       await Helper.delay(0x1f4, this.acc, "Getting User Agent List...", this);
-      const _0x57b6a0 = await this.fetch("https://dapp-backend-large.fractionai.xyz/api2/agents/user/" + this.user.id, "GET", this.token);
+      const _0x57b6a0 = await this.fetch("https://dapp-backend-large.fractionai.xyz/api3/agents/user/" + this.user.id, "GET", this.token);
       this.agentList = _0x57b6a0.data;
       await Helper.delay(0x1f4, this.acc, "Successfully Get User Agent List...", this);
     } catch (_0x448608) {
