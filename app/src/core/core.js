@@ -105,7 +105,7 @@ export default class Core extends API {
   async ['getUserAgent']() {
     try {
       await Helper.delay(0x1f4, this.acc, "Getting User Agent List...", this);
-      const _0x57b6a0 = await this.fetch("https://dapp-backend-large.fractionai.xyz/api2/agents/user/" + this.user.id);
+      const _0x57b6a0 = await this.fetch("https://dapp-backend-large.fractionai.xyz/api2/agents/user/" + this.user.id, "GET", this.token);
       this.agentList = _0x57b6a0.data;
       await Helper.delay(0x1f4, this.acc, "Successfully Get User Agent List...", this);
     } catch (_0x448608) {
