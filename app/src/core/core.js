@@ -56,7 +56,7 @@ export default class Core extends API {
   async ['signIn']() {
     try {
       await Helper.delay(0x1f4, this.acc, "Sign In To Fraction AI DAPPS", this);
-      const _0x1babc8 = await this.fetch("https://dapp-backend-large.fractionai.xyz/3/auth/nonce");
+      const _0x1babc8 = await this.fetch("https://dapp-backend-large.fractionai.xyz/api3/auth/nonce");
       const _0x371733 = _0x1babc8.data.nonce;
       const _0x1f4829 = "dapp.fractionai.xyz wants you to sign in with your Ethereum account:\n" + this.address + "\n\nSign in with your wallet to Neural Arena.\n\nURI: https://dapp.fractionai.xyz\nVersion: 1\nChain ID: 11155111\nNonce: " + _0x371733 + "\nIssued At: " + new Date().toISOString();
       const _0x21deb5 = await this.wallet.signMessage(_0x1f4829);
